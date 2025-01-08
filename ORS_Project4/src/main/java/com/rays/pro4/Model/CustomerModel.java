@@ -33,7 +33,7 @@ public class CustomerModel {
 
 	}
 
-	public void add(CustomerBean bean) throws Exception {
+	public long add(CustomerBean bean) throws Exception {
 
 		Connection conn = JDBCDataSource.getConnection();
 		PreparedStatement pstmt = conn.prepareStatement("insert into user values (?,?,?,?,?,?,?,?,?,?)");
@@ -52,6 +52,7 @@ public class CustomerModel {
 		int i = pstmt.executeUpdate();
 
 		System.out.println("Data Inserted  Successfully !!!" + i);
+		return pk;
 
 	}
 

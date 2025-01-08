@@ -11,7 +11,7 @@
 </head>
 <body>
 	<%@ include file="Header.jsp"%>
-	<h1 style="color: navy;" align="center	">Position List</h1>
+	<h1 style="color: navy;" align="center	">Product List</h1>
 	<form action="<%=ORSView.PRODUCT_LIST_CTL%>" method="post">
 
 

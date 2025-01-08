@@ -35,7 +35,7 @@ public class OrderBean extends BaseBean {
 	@Override
 	public String getkey() {
 		// TODO Auto-generated method stub
-		return customerId + "";
+		return id + "";
 	}
 	@Override
 	public String getValue() {

@@ -30,34 +30,50 @@ public class OrderModel {
 	}
 
 	public void add(OrderBean bean) throws Exception {
+	    // Establishing a connection
+	    try (Connection conn = JDBCDataSource.getConnection();
+	         PreparedStatement pstmt = conn.prepareStatement("INSERT INTO orders VALUES (?,?,?,?,?,?,?,?,?)")) {
 
-		Connection conn = JDBCDataSource.getConnection();
-		PreparedStatement pstmt = conn.prepareStatement("insert into orders values (?,?,?,?,?,?,?,?,?)");
+	        // Fetching customer details
+	        CustomerModel customerModel = new CustomerModel();
+	        CustomerBean customerBean = customerModel.findByPk(bean.getCustomerId());
 
-		CustomerModel customerModel = new CustomerModel();
-		CustomerBean customerBean = customerModel.findByPk(bean.getCustomerId());
+	        if (customerBean == null) {
+	            throw new Exception("Customer with ID " + bean.getCustomerId() + " not found.");
+	        }
 
-		bean.setCustomerName(customerBean.getFirstName());
-		/* bean.setCustomerName(customerBean.getFirstName()); */
+	        // Setting customer name
+	        bean.setCustomerName(customerBean.getFirstName() + " " + customerBean.getLastName());
 
-		int pk = nextPk();
+	        // Getting the next primary key
+	        int pk = nextPk();
 
-		pstmt.setLong(1, pk);
-		System.out.println("jghhjjhhginnnn model" + bean.getCustomerName());
-		pstmt.setLong(2, bean.getCustomerId());
-		pstmt.setString(3, bean.getCustomerName());
-		pstmt.setDate(4, new java.sql.Date(bean.getOrderDate().getTime()));
-		pstmt.setLong(5, bean.getTotalAmount());
-		pstmt.setString(6, bean.getCreatedBy());
-		pstmt.setString(7, bean.getModifiedBy());
-		pstmt.setTimestamp(8, bean.getCreatedDatetime());
-		pstmt.setTimestamp(9, bean.getModifiedDatetime());
+	        // Setting parameters for the prepared statement
+	        pstmt.setLong(1, pk);
+	        pstmt.setLong(2, bean.getCustomerId());
+	        pstmt.setString(3, bean.getCustomerName());
+	        pstmt.setDate(4, new java.sql.Date(bean.getOrderDate().getTime()));
+	        pstmt.setLong(5, bean.getTotalAmount());
+	        pstmt.setString(6, bean.getCreatedBy());
+	        pstmt.setString(7, bean.getModifiedBy());
+	        pstmt.setTimestamp(8, bean.getCreatedDatetime());
+	        pstmt.setTimestamp(9, bean.getModifiedDatetime());
 
-		int i = pstmt.executeUpdate();
+	        // Executing the update
+	        int i = pstmt.executeUpdate();
 
-		System.out.println("Data Inserted  Successfully !!!" + i);
-
+	        if (i > 0) {
+	            System.out.println("Data inserted successfully! Rows affected: " + i);
+	        } else {
+	            throw new Exception("Data insertion failed.");
+	        }
+	    } catch (Exception e) {
+	        // Handle exceptions
+	        e.printStackTrace();
+	        throw e; // Rethrow the exception for higher-level handling
+	    }
 	}
+
 
 	public void update(OrderBean bean) throws Exception {
 
@@ -129,8 +145,8 @@ public class OrderModel {
 
 			bean.setId(rs.getLong(1));
 			bean.setCustomerId(rs.getLong(2));
-			bean.setCustomerName(rs.getString(4));
-			bean.setOrderDate(rs.getDate(3));
+			bean.setCustomerName(rs.getString(3));
+			bean.setOrderDate(rs.getDate(4));
 			bean.setTotalAmount(rs.getLong(5));
 			bean.setCreatedBy(rs.getString(6));
 			bean.setModifiedBy(rs.getString(7));

@@ -25,6 +25,9 @@ public interface ORSView {
 	public String ORDER_LIST_VIEW = PAGE_FOLDER + "/OrderListView.jsp";
 	public String ORDER_VIEW = PAGE_FOLDER + "/OrderView.jsp";
 
+	public String EMPLOYEE_LIST_VIEW = PAGE_FOLDER + "/EmployeeListView.jsp";
+	public String EMPLOYEE_VIEW = PAGE_FOLDER + "/EmployeeView.jsp";
+
 	public String GET_MARKSHEET_VIEW = PAGE_FOLDER + "/GetMarksheetView.jsp";
 	public String USER_VIEW = PAGE_FOLDER + "/UserView.jsp";
 	public String USER_LIST_VIEW = PAGE_FOLDER + "/UserListView.jsp";
@@ -67,7 +70,7 @@ public interface ORSView {
 	public String MARKSHEET_CTL = APP_CONTEXT + "/ctl/MarksheetCtl";
 	public String MARKSHEET_LIST_CTL = APP_CONTEXT + "/ctl/MarksheetListCtl";
 	public String USER_CTL = APP_CONTEXT + "/ctl/UserCtl";
-	public String USER_LIST_CTL = APP_CONTEXT + "";
+	public String USER_LIST_CTL = APP_CONTEXT + "/ctl/UserListCtl";
 	public String COLLEGE_CTL = APP_CONTEXT + "/ctl/CollegeCtl";
 	public String COLLEGE_LIST_CTL = APP_CONTEXT + "/ctl/CollegeListCtl";
 	public String STUDENT_CTL = APP_CONTEXT + "/ctl/StudentCtl";
@@ -97,4 +100,6 @@ public interface ORSView {
 	public String PORTFOLIO_MANAGEMENT_CTL = APP_CONTEXT + "/ctl/PortfolioManagementCtl";
 	public String PORTFOLIO_MANAGEMENT_LIST_CTL = APP_CONTEXT + "/ctl/PortfolioManagementListCtl";
 
+	public String EMPLOYEE_CTL = APP_CONTEXT + "/ctl/EmployeeCtl";
+	public String EMPLOYEE_LIST_CTL = APP_CONTEXT + "/ctl/EmployeeListCtl";
 }

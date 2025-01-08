@@ -49,19 +49,12 @@
                     %>
             
             <table width="100%" align="center">
-                 <tr>
-                 <td align="right">
-                 <label> First Name:</label> 
-                 	<input type="text" name="firstName" placeholder="Enter Student Name" Size= "22" value="<%=ServletUtility.getParameter("firstName", request)%>">
-				<!-- 	&nbsp;
-                 --> 	<label>Last Name:</label> 
-    	             <input type="text" name="lastName" placeholder="Enter last Name" Size= "22" value="<%=ServletUtility.getParameter("lastName", request)%>">
-                <!--     &nbsp;
- -->                 	<label>EmailId:</label> 
-    	             <input type="text" name="email" placeholder="Enter Email_id" Size= "22" value="<%=ServletUtility.getParameter("email", request)%>">
+                
+          	<label>TotalAmount:</label> 
+    	             <input type="text" name="totalAmount" placeholder="Enter Total Amount" Size= "22" value="<%=ServletUtility.getParameter("totalAmount", request)%>">
                    <!--  &nbsp; --> 
                     <label>Customer Name:</label> 
-    	             <%=HTMLUtility.getList("customerName", String.valueOf(bean.getCustomerId()), clist)%>
+    	             <%=HTMLUtility.getList("customerId", String.valueOf(bean.getCustomerName()), clist)%>
                <!--      &nbsp;   
         	    -->      <input type="submit" name="operation" value="<%=OrderListCtl.OP_SEARCH%>">
         	       

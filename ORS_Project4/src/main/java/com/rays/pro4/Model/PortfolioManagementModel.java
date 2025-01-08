@@ -26,7 +26,7 @@ public class PortfolioManagementModel {
 		return pk + 1;
 	}
 
-	public void add(PortfolioManagementBean bean) throws Exception {
+	public long add(PortfolioManagementBean bean) throws Exception {
 
 		Connection conn = JDBCDataSource.getConnection();
 		PreparedStatement pstmt = conn.prepareStatement("insert into portfolio_management values (?,?,?,?,?,?,?,?,?)");
@@ -45,6 +45,7 @@ public class PortfolioManagementModel {
 		int i = pstmt.executeUpdate();
 
 		System.out.println("Data Inserted  Successfully =====>" + i);
+		return pk;
 
 	}
 

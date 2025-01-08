@@ -37,7 +37,7 @@
  	} else {
  %> Add <%
  	}
- %> Potfolio Management
+ %> Portfolio
 				</font>
 			</h1>
 
@@ -73,7 +73,7 @@
 				</tr>
 
 				<tr>
-					<th>Initialn Investment Amount :</th>
+					<th>Initial Investment Amount :</th>
 					<td><input type="text" name="initialInvestmentAmount"
 						placeholder="Enter Initial Investment Amount	"
 						value="<%=DataUtility.getStringData(bean.getInitialInvestmentAmount())%>"></td>
