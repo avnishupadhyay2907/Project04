@@ -116,9 +116,11 @@ public class OrderModel {
 
 		if (bean != null) {
 			if (bean.getCustomerName() != null && bean.getCustomerName().length() > 0) {
-				sql.append(" and Customer Name like '" + bean.getCustomerName() + "%'");
+				sql.append(" and customer_name like '" + bean.getCustomerName() + "%'");
 			}
-
+			if (bean.getTotalAmount() != 0 && bean.getTotalAmount() > 0) {
+				sql.append(" and total_amount like '" + bean.getTotalAmount() + "%'");
+			}
 			if (bean.getOrderDate() != null && ((CharSequence) bean.getOrderDate()).length() > 0) {
 				sql.append(" and order_date like '" + bean.getOrderDate() + "%'");
 			}

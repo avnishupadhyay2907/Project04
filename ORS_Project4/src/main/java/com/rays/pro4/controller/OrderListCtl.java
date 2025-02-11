@@ -14,6 +14,8 @@ import com.rays.pro4.Exception.ApplicationException;
 import com.rays.pro4.Model.CollegeModel;
 import com.rays.pro4.Model.CustomerModel;
 import com.rays.pro4.Model.OrderModel;
+import com.rays.pro4.Model.RoleModel;
+import com.rays.pro4.Model.UserModel;
 import com.rays.pro4.Util.DataUtility;
 import com.rays.pro4.Util.PropertyReader;
 import com.rays.pro4.Util.ServletUtility;
@@ -22,13 +24,15 @@ import com.rays.pro4.Util.ServletUtility;
 public class OrderListCtl extends BaseCtl {
 
 	protected void preload(HttpServletRequest request) {
-
 		CustomerModel cmodel = new CustomerModel();
+		OrderModel omodel = new OrderModel();
 
 		try {
 			List clist = cmodel.list();
+			List olist = omodel.list();
 
 			request.setAttribute("CustomerList", clist);
+			request.setAttribute("OrderList", olist);
 
 		} catch (ApplicationException e) {
 			e.printStackTrace();
@@ -42,7 +46,11 @@ public class OrderListCtl extends BaseCtl {
 	protected BaseBean populateBean(HttpServletRequest request) {
 		OrderBean bean = new OrderBean();
 
-		bean.setCustomerId(DataUtility.getLong(request.getParameter("courseName")));
+		bean.setCustomerId(DataUtility.getLong(request.getParameter("customerId")));
+		bean.setCustomerName(DataUtility.getString(request.getParameter("customerName")));
+		bean.setTotalAmount(DataUtility.getLong(request.getParameter("totalAmount")));
+		
+		populateDTO(bean, request);
 		return bean;
 	}
 

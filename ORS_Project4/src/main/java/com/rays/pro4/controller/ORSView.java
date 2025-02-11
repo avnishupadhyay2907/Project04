@@ -16,6 +16,9 @@ public interface ORSView {
 	public String MARKSHEET_VIEW = PAGE_FOLDER + "/MarksheetView.jsp";
 	public String MARKSHEET_LIST_VIEW = PAGE_FOLDER + "/MarksheetListView.jsp";
 
+	public String POSITION_VIEW = PAGE_FOLDER + "/PositionView.jsp";
+	public String POSITION_LIST_VIEW = PAGE_FOLDER + "/PositionListView.jsp";
+
 	public String CUSTOMER_LIST_VIEW = PAGE_FOLDER + "/CustomerListView.jsp";
 	public String CUSTOMER_VIEW = PAGE_FOLDER + "/CustomerView.jsp";
 
@@ -27,6 +30,15 @@ public interface ORSView {
 
 	public String EMPLOYEE_LIST_VIEW = PAGE_FOLDER + "/EmployeeListView.jsp";
 	public String EMPLOYEE_VIEW = PAGE_FOLDER + "/EmployeeView.jsp";
+
+	public String STAFF_MEMBER_LIST_VIEW = PAGE_FOLDER + "/StaffMemberListView.jsp";
+	public String STAFF_MEMBER_VIEW = PAGE_FOLDER + "/StaffMemberView.jsp";
+
+	public String MEDICATION_LIST_VIEW = PAGE_FOLDER + "/MedicationListView.jsp";
+	public String MEDICATION_VIEW = PAGE_FOLDER + "/MedicationView.jsp";
+
+	public String COMPENSATION_LIST_VIEW = PAGE_FOLDER + "/CompensationListView.jsp";
+	public String COMPENSATION_VIEW = PAGE_FOLDER + "/CompensationView.jsp";
 
 	public String GET_MARKSHEET_VIEW = PAGE_FOLDER + "/GetMarksheetView.jsp";
 	public String USER_VIEW = PAGE_FOLDER + "/UserView.jsp";
@@ -102,4 +114,16 @@ public interface ORSView {
 
 	public String EMPLOYEE_CTL = APP_CONTEXT + "/ctl/EmployeeCtl";
 	public String EMPLOYEE_LIST_CTL = APP_CONTEXT + "/ctl/EmployeeListCtl";
+
+	public String POSITION_CTL = APP_CONTEXT + "/ctl/PositionCtl";
+	public String POSITION_LIST_CTL = APP_CONTEXT + "/ctl/PositionListCtl";
+
+	public String STAFF_MEMBER_CTL = APP_CONTEXT + "/ctl/StaffMemberCtl";
+	public String STAFF_MEMBER_LIST_CTL = APP_CONTEXT + "/ctl/StaffMemberListCtl";
+
+	public String MEDICATION_CTL = APP_CONTEXT + "/ctl/MedicationCtl";
+	public String MEDICATION_LIST_CTL = APP_CONTEXT + "/ctl/MedicationListCtl";
+
+	public String COMPENSATION_CTL = APP_CONTEXT + "/ctl/CompensationCtl";
+	public String COMPENSATION_LIST_CTL = APP_CONTEXT + "/ctl/CompensationListCtl";
 }

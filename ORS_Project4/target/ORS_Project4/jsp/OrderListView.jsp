@@ -34,7 +34,7 @@
      </div>
      
      <% 
-         List clist=(List) request.getAttribute("CustomerList");
+         List clist=(List) request.getAttribute("customerList");
      %>
      
        <%

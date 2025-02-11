@@ -1,14 +1,21 @@
-
-<!DOCTYPE html>
-
 <%@page import="com.rays.pro4.Bean.UserBean"%>
 <%@page import="com.rays.pro4.Bean.RoleBean"%>
 <%@ page import="com.rays.pro4.controller.LoginCtl"%>
 <%@page import="com.rays.pro4.controller.ORSView"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <html>
-
+<head>
+<title>Insert title here</title>
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<!-- Include jQuery UI -->
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<!-- Include jQuery UI CSS -->
+<link rel="stylesheet"
+	href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="/Project-04/js/checkbox.js"></script>
+<script src="/Project-04/js/datepicker.js"></script>
+</head>
+<body>
 <body>
 	<%
 		UserBean userBean = (UserBean) session.getAttribute("user");
@@ -95,7 +102,15 @@
 					href="<%=ORSView.ORDER_CTL%>">Add Order</b></a> | <a
 					href="<%=ORSView.ORDER_LIST_CTL%>">Order List</b></a> | <a
 					href="<%=ORSView.EMPLOYEE_CTL%>">Add Employee</b></a> | <a
-					href="<%=ORSView.EMPLOYEE_LIST_CTL%>">Employee List</b></a> | <a
+					href="<%=ORSView.EMPLOYEE_LIST_CTL%>">Employee List</b></a> |<a
+					href="<%=ORSView.STAFF_MEMBER_CTL%>">Add Staff Member</b></a> | <a
+					href="<%=ORSView.STAFF_MEMBER_LIST_CTL%>">Staff Member List</b></a> |<a
+					href="<%=ORSView.MEDICATION_CTL%>">Add Medication</b></a> | <a
+					href="<%=ORSView.MEDICATION_LIST_CTL%>">Medication List</b></a> | <a
+					href="<%=ORSView.COMPENSATION_CTL%>">Add Compensation</b></a> |<a
+					href="<%=ORSView.COMPENSATION_LIST_CTL%>">Compensation List</b></a>|<a
+					href="<%=ORSView.POSITION_CTL%>">Add Position</b></a> |<a
+					href="<%=ORSView.POSITION_LIST_CTL%>">Position List</b></a> | <a
 					target="blank" href="<%=ORSView.JAVA_DOC_VIEW%>">Java Doc</b></a> | <%
 					}
 				%> <%

@@ -1,6 +1,7 @@
 package com.rays.pro4.Model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -260,8 +261,9 @@ public class EmployeeModel {
 			if (bean.getPassword() != null && bean.getPassword().length() > 0) {
 				sql.append(" AND PASSWORD like '" + bean.getPassword() + "%'");
 			}
-			if (bean.getBirthDate() != null && bean.getBirthDate().getDate() > 0) {
-				sql.append(" AND BIRTH_DATE = " + bean.getBirthDate());
+			if (bean.getBirthDate() != null && bean.getBirthDate().getTime() > 0) {
+				Date d = new java.sql.Date(bean.getBirthDate().getTime());
+				sql.append(" AND BIRTH_DATE like '" + d + "%'");
 			}
 			if (bean.getContactNumber() != null && bean.getContactNumber().length() > 0) {
 				sql.append(" AND CONTACT_NUMBER like '" + bean.getContactNumber() + "%'");

@@ -18,7 +18,7 @@
 
 </head>
 <body>
-<jsp:useBean id="cbean" class="com.rays.pro4.Bean.CollegeBean" scope="request" ></jsp:useBean>
+<%-- <jsp:useBean id="cbean" class="com.rays.pro4.Bean.CollegeBean" scope="request" ></jsp:useBean> --%>
 <jsp:useBean id="bean" class="com.rays.pro4.Bean.StudentBean" scope="request" ></jsp:useBean>
 
   <form action="<%=ORSView.STUDENT_LIST_CTL%>" method="post">

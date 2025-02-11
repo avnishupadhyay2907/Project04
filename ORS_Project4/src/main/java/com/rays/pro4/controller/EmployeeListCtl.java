@@ -47,7 +47,11 @@ public class EmployeeListCtl extends BaseCtl {
 		bean.setFullName(DataUtility.getString(request.getParameter("fullName")));
 		bean.setUserName(DataUtility.getString(request.getParameter("userName")));
 		bean.setContactNumber(DataUtility.getString(request.getParameter("contactNumber")));
-
+		bean.setBirthDate(DataUtility.getDate(request.getParameter("birthDate")));
+		
+		System.out.println("request dob: " + request.getParameter("birthDate"));
+		System.out.println("bean dob: " + bean.getBirthDate());
+		populateDTO(bean, request);
 		return bean;
 	}
 
@@ -120,6 +124,7 @@ public class EmployeeListCtl extends BaseCtl {
 		EmployeeModel model = new EmployeeModel();
 
 		if (OP_SEARCH.equalsIgnoreCase(op)) {
+		System.out.println("in employeee search ==>");
 			pageNo = 1;
 		} else if (OP_NEXT.equalsIgnoreCase(op)) {
 			pageNo++;
@@ -147,7 +152,7 @@ public class EmployeeListCtl extends BaseCtl {
 						return;
 					}
 					System.out.println("20");
-					ServletUtility.setSuccessMessage(" Student Data Successfully Deleted", request);
+					ServletUtility.setSuccessMessage(" Employee Data Successfully Deleted", request);
 				}
 			} else {
 				ServletUtility.setErrorMessage("Select at least one record", request);

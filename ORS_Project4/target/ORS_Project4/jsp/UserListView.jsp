@@ -12,11 +12,29 @@
 <head>
 <link rel="icon" type="image/png"
 	href="<%=ORSView.APP_CONTEXT%>/img/logo.png" sizes="16*16" />
+
 <title>User List</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
 <script src="<%=ORSView.APP_CONTEXT%>/js/jquery.min.js"></script>
 <script src="<%=ORSView.APP_CONTEXT%>/js/Checkbox11.js"></script>
-
+<script>
+	$(function() {
+		$("#udate").datepicker({
+			changeMonth : true,
+			changeYear : true,
+			yearRange : '1980:2007',
+			dateFormat : 'mm/dd/yy'
+		});
+	});
+</script>
 </head>
 <body>
 	<jsp:useBean id="bean" class="com.rays.pro4.Bean.UserBean"
@@ -68,6 +86,9 @@
 						<label>LoginId</font> :
 					</label> <input type="text" name="loginid" placeholder="Enter Login-Id"
 						value="<%=ServletUtility.getParameter("login", request)%>">
+						&emsp; <label>Date Of Birth</font> :
+					</label> <input type="text" id="udate" name="dob" placeholder="Enter dob"
+						value="<%=ServletUtility.getParameter("dob", request)%>">
 						&emsp; <label>Role</font> :
 					</label> <%=HTMLUtility.getList("roleid", String.valueOf(bean.getRoleId()), rlist)%>
 						&nbsp; <%-- <%=HTMLUtility.getList("loginid", String.valueOf(bean.getRoleId()), ulist)%>

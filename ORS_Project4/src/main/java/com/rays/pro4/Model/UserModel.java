@@ -67,7 +67,7 @@ public class UserModel {
 		Connection conn = null;
 		int pk = 0;
 
-		UserBean existbean = findByLogin(bean.getLogin());                               
+		UserBean existbean = findByLogin(bean.getLogin());
 		if (existbean != null) {
 			throw new DuplicateRecordException("login Id already exists");
 
@@ -314,9 +314,9 @@ public class UserModel {
 			if (bean.getPassword() != null && bean.getPassword().length() > 0) {
 				sql.append(" AND PASSWORD like '" + bean.getPassword() + "%'");
 			}
-			if (bean.getDob() != null && bean.getDob().getDate() > 0) {
-				Date d = new Date(bean.getDob().getDate());
-				sql.append(" AND DOB = " + DataUtility.getDateString(d));
+			if (bean.getDob() != null && bean.getDob().getTime() > 0) {
+				Date d = new java.sql.Date(bean.getDob().getTime());
+				sql.append(" AND DOB like '" + d + "%'");
 			}
 			if (bean.getMobileNo() != null && bean.getMobileNo().length() > 0) {
 				sql.append(" AND MOBILE_NO = " + bean.getMobileNo());

@@ -71,6 +71,9 @@ public class UserListCtl extends BaseCtl {
 		bean.setLogin(DataUtility.getString(request.getParameter("loginid")));
 		bean.setDob(DataUtility.getDate(request.getParameter("dob")));
 
+		System.out.println("request dob: " + request.getParameter("dob"));
+		System.out.println("bean dob: " + bean.getDob());
+
 		return bean;
 	}
 
@@ -199,12 +202,13 @@ public class UserListCtl extends BaseCtl {
 		if (list == null || list.size() == 0 && !OP_DELETE.equalsIgnoreCase(op)) {
 			ServletUtility.setErrorMessage("No record found ", request);
 		}
+		
 		ServletUtility.setList(list, request);
 		ServletUtility.setBean(bean, request);
 		ServletUtility.setPageNo(pageNo, request);
 		ServletUtility.setPageSize(pageSize, request);
 		ServletUtility.forward(getView(), request, response);
-		log.debug("UserListCtl doGet End");
+		log.debug("UserListCtl doPost End");
 
 	}
 
